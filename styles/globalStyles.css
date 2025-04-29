@@ -1,0 +1,684 @@
+/* Styles for all pages */
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+    margin: 0;
+}
+
+/* Variables used to change color theme */
+[data-theme=light]{
+    --backgroundColorPage: white;
+    --backgroundColorMenu: white;
+    --backgroundColorNavigationFooter: #f9f9fd;
+    --navigationBoxShadow: 0 4px 6px 0 rgba(0, 0, 0, .1);
+    --underlineColor: rgb(0, 0, 0);
+    --underlineColorBackground: 0 0 0 0.8px var(--underlineColor);
+
+    --headingBackgroundColor: rgba(255, 255, 255, 0.75);
+
+    --footerHeadingUnderline: radial-gradient(116.67% 116.67% at 50% -30.83%, #1dc469 0, #07a44d 100%);
+    --footerLinkColor: #555555;
+    --iconsFilter: unset;
+    --circleHoverBackground: rgba(255, 255, 255, 0.8);
+
+    --textColor: #212224;
+    --textColorHover: black;
+    --backgroundFilter: unset;
+}
+
+[data-theme=dark]{
+    --backgroundColorPage: 	#333333;
+    --backgroundColorMenu: #262728;
+    --backgroundColorNavigationFooter: #262728;
+    --navigationBoxShadow: 0 4px 6px 0 rgba(255, 255, 255, .1);
+    --underlineColor: rgb(255, 255, 255);
+    --underlineColorBackground: 0 0 0 0.8px var(--underlineColor);
+
+    --headingBackgroundColor: rgba(0, 0, 0, 0.75);
+
+    --footerHeadingUnderline: #e91e63;
+    --footerLinkColor: #d4d4d4;
+    --iconsFilter: brightness(0) invert(2);
+    --circleHoverBackground: rgba(255, 255, 255, 0.05);
+
+    --textColor: white;
+    --textColorHover: rgb(230, 230, 230);
+
+    --backgroundFilter: brightness(0) saturate(100%) invert(84%) sepia(84%) saturate(0%) hue-rotate(145deg) brightness(90%) contrast(86%);   
+}
+
+/* Adjust Scrolling because of navigation bar */
+html {
+    scroll-padding-top: 90px;
+}
+
+/* Don't allow scroll when sidebar is open */
+.bodyNoScroll {
+    overflow: hidden;
+}
+
+/* Transition when changing color themes */
+body, .main, .header {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Add color to all text elements */
+p, a, h1, h2, h3, input, th, tr, td {
+    color: var(--textColor);
+}
+
+body {
+    background-color: var(--backgroundColorPage);
+}
+
+/* Display nav on top with position fixed */
+.nav {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 40px;
+    -webkit-transition: padding-top .3s linear, padding-bottom .3s linear, background-color .3s linear; /* Add box-shadow and transition */
+    transition: padding-top .3s linear, padding-bottom .3s linear, background-color .3s linear;
+    background-color: var(--backgroundColorNavigationFooter);
+    -webkit-box-shadow: var(--navigationBoxShadow); 
+    box-shadow: var(--navigationBoxShadow);
+}
+
+/* Make nav smaller when scrolled with animation */
+.navScrolled {
+    padding: 24px 40px !important;
+}
+
+/* Menu icon for mobile devices */
+.menuIcon {
+    display: none;
+    filter: var(--backgroundFilter);
+    cursor: pointer;
+}
+
+/* Menu for mobile devices (outside of screen) */
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%;
+    max-width: 350px;
+    min-width: 280px;
+    height: 100vh;
+    padding: 20px 10px;
+    background-color: var(--backgroundColorMenu);
+    transition: ease-in-out transform 0.5s;
+    transform: translateX(-100%);
+}
+
+/* Move menu inside the page with animation over all other elements */
+.menu.open {
+    transform: translateX(0);
+    z-index: 4; /* Display over popUps */
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.close {
+    width: 16px;
+    margin-bottom: 24px;
+    filter: var(--iconsFilter);
+    cursor: pointer;
+}
+
+.sidebarIcon {
+    position: relative;
+    bottom: 2px; /* Reposition image to center */
+    width: 18px;
+    margin-right: 6px;
+    vertical-align: middle;
+    filter: var(--iconsFilter);
+}
+
+.navContent {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.navContentText {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    text-decoration: none; /* Remove underline */
+    color: var(--textColor);
+    position: relative;
+    cursor: pointer;
+}
+
+.navContentText:hover {
+    color: var(--textColorHover);
+}
+
+/* Position absolute under navContentText and add transition*/
+.underline {
+    position: absolute;
+    bottom: 30%;
+    box-shadow: var(--underlineColorBackground);
+    transition: all 0.4s ease;
+    pointer-events: none;
+}
+
+.switcherHolder {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.switchButtons {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: auto;
+    padding: 0;
+    border: 0;
+    color: var(--textColor);
+    background: transparent;
+    cursor: pointer;
+}
+
+.languageIcon {
+    position: relative;
+    bottom: 1px;
+    width: 18px;
+    filter: var(--iconsFilter);
+}
+
+.themeHolder {
+    margin-left: 12px;
+}
+
+.toggleButton {
+    justify-content: flex-end;
+    width: 92px;
+}
+
+.iconButton {
+    position: relative;
+    bottom: 2px; /* Center image */
+    width: 18px;
+}
+
+.articleHolder {
+    padding: 135px 35px 0 35px;
+}
+
+.heading {
+    text-align: center;
+    font-size: 48px;
+    padding: 16px 3%;
+    border-radius: 4px;
+    background-color: var(--headingBackgroundColor);
+}
+
+ul {
+	list-style: none; /* Remove list indicator */
+    padding-left: 0;
+}
+
+.footer {
+    display: grid;
+    grid-template-rows: auto auto; /* Make 2 rows */
+    grid-template-columns: repeat(6, 1fr); /* Make 6 columns */
+    gap: 50px 24px;
+    line-height: 1.5;
+    padding: 60px 35px 32px;
+    background-color: var(--backgroundColorNavigationFooter);
+}
+
+.footer-col {
+    align-self: start; /* Align items to start */
+}
+
+/* Move the footer-col to the correct grid template */
+.footer-col:nth-child(1),
+.footer-col:nth-child(2),
+.footer-col:nth-child(3) {
+    grid-column: span 2;
+}
+
+.footer-col:nth-child(4) {
+    grid-column: 1 / 3;
+}
+
+.footer-col:nth-child(5) {
+    grid-column: 3 / 7;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.footerHeading {
+	font-size: 18px;
+    color: var(--textColor);
+	text-transform: capitalize;
+	margin-bottom: 32px;
+	font-weight: 600;
+	position: relative;
+}
+
+/* Underlined footer heading */
+.footerHeading::before {
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background: var(--footerHeadingUnderline);
+	height: 2px;
+	width: 50px;
+}
+
+/* Don't add margin to last element */
+.footer-col ul li:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.footerLink {
+	font-size: 16px;
+	text-decoration: none;
+	font-weight: 300;
+	color: var(--footerLinkColor);
+	display: block;
+	transition: all 0.3s ease;
+}
+
+.footerLink:hover {
+	color: var(--textColor);
+	transform: translateX(8px); /* Move footerLink 8px(animation) on hover */
+}
+
+.social-links {
+    width: -webkit-fill-available;
+}
+
+.shareButtonsHolder {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Create 2 columns */
+    gap: 14px;
+}
+
+.shareLink {   
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    color: var(--footerLinkColor);
+}
+
+.footerContactsHolder {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.contactP {
+    color: var(--footerLinkColor);
+}
+
+.contactP a {
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.emailIcon {
+    width: 20px;
+    filter: var(--iconsFilter);
+}
+
+.footerIconsHolder {
+    display: flex;
+    gap: 16px;
+    margin-left: -7px;
+}
+
+.footerContactsIcon {
+    width: 39px;
+    height: 39px;
+    filter: var(--iconsFilter);
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.circleIcon {
+    background-color: transparent;
+    padding: 7px;
+}
+
+.footerContactsHolder:hover .circleIcon {
+    transform: scale(1.1); /* Make images bigger (add animation) on hover */
+    background-color: var(--circleHoverBackground);
+}
+
+.toTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 50px;
+    bottom: 40px;
+    z-index: 2; /* Under popUps and sidebar, but over other elements */
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: -o-radial-gradient(50% -30.83%, 116.67% 116.67%, #1dc469 0, #07a44d 100%); /* Linear Gradient from 0 to 100% */
+    background: radial-gradient(116.67% 116.67% at 50% -30.83%, #1dc469 0, #07a44d 100%);
+    transition: opacity 0.5s ease, visibility 0.5s;
+    cursor: pointer;
+    opacity: 0; /* Start as invisible */
+    visibility: hidden; /* Hidden by default */
+}
+
+.toTop.visible {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Make it visible */
+    transition: opacity 0.5s ease; /* Transition for fade in */
+}
+
+.toTopSvg {
+    width: 26px;
+    filter: brightness(0) invert(1); /* Make image white */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: hsl(0, 0%, 0%, 0.75);
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+@media screen and (min-width: 1600px) {
+    .footerHeading {
+        font-size: 19px;
+    }
+
+    .footerLink {
+        font-size: 17px;
+    }
+
+    .contactP {
+        font-size: 17px;
+    }
+}
+
+/* Add font size to elements and make them bigger */
+@media screen and (min-width: 1700px) {
+    .nav {
+        padding: 39px 40px;
+    }
+
+    .navScrolled {
+        padding: 26px 40px;
+    }
+
+    .navContentText {
+        font-size: 20px;
+    }
+
+    .themeHolder {
+        margin-left: 24px;
+    }
+
+    .switchButtons {
+        font-size: 16px;
+    }
+
+    .toggleButton {
+        width: auto;
+    }
+
+    .iconButton {
+        width: 20px;
+    }
+
+    .section {
+        margin-bottom: 32px;
+    }
+
+    .heading {
+        font-size: 54px;
+    }
+
+    .footerHeading {
+        font-size: 20px;
+    }
+
+    .footerLink {
+        font-size: 18px;
+    }
+
+    .shareLink {
+        font-size: 17px;
+    }
+
+    .contactP {
+        font-size: 18px;
+    }
+
+    .footerContactsIcon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .toTop {
+        width: 50px;
+        height: 50px;
+    }
+
+    .toTopSvg {
+        width: 32px;
+    }
+}
+
+/* Add font-size to elements */
+@media screen and (min-width: 1900px) {
+    .heading {
+        font-size: 58px;
+    }
+
+    .footerHeading {
+        font-size: 24px;
+    }
+
+    .footerLink {
+        font-size: 20px;
+    }
+
+    .shareLink {
+        font-size: 19px;
+    }
+
+    .contactP {
+        font-size: 19px;
+    }
+
+    .footerContactsIcon {
+        width: 46px;
+        height: 46px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .navContent {
+        gap: 16px;
+    }
+}
+
+/* Hide computer navigation and show mobile navigation */
+@media screen and (max-width: 1023px) {
+    .articleHolder {
+        padding: 135px 24px 0 24px;
+    }
+
+    .menuIcon {
+        display: block;
+    }
+
+    .nav {
+        padding: 40px 24px;
+    }
+
+    .navScrolled {
+        padding: 24px !important;
+    }
+
+    .navContent {
+        display: none;
+    }
+
+    .footer {
+        gap: 50px 24px;
+        padding: 50px 24px 24px;
+    }
+
+    .footerHeading{
+        font-size: 17px;
+    }
+
+    .footerLink {
+        font-size: 15px;
+    }
+
+    .footerLink:hover {
+        transform: translateX(6px);
+    }
+
+    .footer-col:nth-child(5) {
+        grid-column: 3 / 7; /* Male cpntacts span from 3 to 7 */
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .footer {
+        grid-template-rows: auto auto auto; /* Create 3 rows */
+        grid-template-columns: repeat(4, 1fr); /* Create 4 columns */
+    }
+
+    .footer-col:nth-child(4) {
+        grid-column: span 2;
+    }
+
+    .footer-col:nth-child(5) {
+        grid-column: span 4;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .heading {
+        font-size: 42px;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .heading {
+        font-size: 42px;
+    }
+
+    .footer {
+        justify-items: center;
+        grid-template-rows: repeat(5, auto);
+        grid-template-columns: 1fr;
+        gap: 40px 0;
+    }
+
+    .footerHeading {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .footerHeading::before {
+        left: 50%; /* Footer heading underline aligned to center */
+        transform: translateX(-50%);
+    }
+
+    .footerLink {
+        text-align: center;
+    }
+
+    .footerLink:hover {
+        transform: translateY(1px); /* Transform footerLinks to move one 1px to the bottom on hover */
+    }
+
+    .shareButtonsHolder {
+        max-width: 320px;
+        margin-left: 30px;
+    }
+
+    .footer-col:nth-child(5) {
+        grid-column: auto;
+    }
+
+    .footerIconsHolder {
+        justify-content: center;
+        margin: 0;
+    }
+
+    .contactP {
+        font-size: 15px;
+        text-align: center;
+        width: max-content;
+    }
+
+    .toTop {
+        right: 20px;
+        bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .articleHolder {
+        padding: 135px 16px 0 16px;
+    }
+
+    .heading {
+        font-size: 36px
+    }
+
+    .nav {
+        padding: 40px 16px;
+    }
+
+    .navScrolled {
+        padding: 24px 16px !important;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .footerContactsHolder {
+        gap: 12px;
+    }
+
+    .contactP {
+        width: min-content;
+    }
+}

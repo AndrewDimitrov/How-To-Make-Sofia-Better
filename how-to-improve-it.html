@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Title and Favicon -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air for Sofia</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon-32x32.ico">
+
+        <!-- Styles -->
+         <link rel="stylesheet" href="styles/howToImproveIt.css">
+        <link rel="stylesheet" href="styles/globalStyles.css">
+
+        <!-- Scripts -->
+        <script src="scripts/languageSwitcher.js" defer></script> <!-- Language Switcher Script -->
+        <script src="scripts/globalFunctionality.js" defer></script>
+        <script src="scripts/themeSwitcher.js" defer></script> <!-- Theme Switcher Script -->
+    </head>
+    <body data-currentPage="improveNav"> 
+        <main class="main">
+            <!-- Navigation -->
+            <nav class="nav" id="nav">
+                <img src="assets/icon-menu.svg" alt="Menu" class="menuIcon" id="menuIcon">
+                <!-- Overlay for closing menu(sidebar), when clciking outside of it -->
+                <div class="overlay hidden" id="overlay"></div>
+                <!-- Sidebar Menu for mobile devices -->
+                <div class="menu" id="menu">
+                    <img src="assets/close.svg" alt="Close" class="close" id="close">
+                    <div class="sidebar">
+                        <a href="index.html" class="navContentText">
+                            <img src="assets/home.svg" alt="Home Icon" class="sidebarIcon">
+                            <p class="navContentText" id="homeSidebar">Home</p>
+                        </a>
+
+                        <a href="sources-of-pollution.html" class="navContentText">
+                            <img src="assets/sourcesOfPollutionSidebar.svg" alt="Pollution Icon" class="sidebarIcon">
+                            <p class="navContentText" id="pollutionSidebar"> Sources of Pollution</p>
+                        </a>
+
+                        <a href="how-to-improve-it.html" class="navContentText">
+                            <img src="assets/howToImproveItSidebar.svg" alt="Improvement Icon" class="sidebarIcon">
+                            <p class="navContentText" id="improveSidebar"> How to Improve Air Quality</p>
+                        </a>
+
+                        <a href="check-air-quality.html" class="navContentText">
+                            <img src="assets/currentAirQualitySidebar.svg" alt="Current Quality Icon" class="sidebarIcon">
+                            <p class="navContentText" id="qualitySidebar"> Current Air Quality</p>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation for desktop -->
+                <div class="navContent">
+                    <a href="index.html" class="navContentText" data-link="home" id="homeNav">Home</a>
+                    <a href="sources-of-pollution.html" class="navContentText" data-link="pollution" id="pollutionNav">Sources of Pollution</a>
+                    <a href="how-to-improve-it.html" class="navContentText" data-link="improve" id="improveNav">How to Improve Air Quality</a>
+                    <a href="check-air-quality.html" class="navContentText" data-link="quality" id="qualityNav">Current Air Quality</a>
+                    <div class="underline" id="underline"></div> <!-- Underline active link -->
+                </div>
+
+                 <div class="switcherHolder">
+                    <!-- Language Switcher -->
+                    <div>
+                        <button class="languageToggleButton switchButtons" id="languageToggleButton">BG<img src="assets/languageSvg.svg" alt="Language Icon" class="languageIcon"></button>
+                    </div>
+    
+                    <!-- Theme Switcher -->
+                    <div class="themeHolder" id="themeSwitcher" data-theme-picker> 
+                        <button class="toggleButton switchButtons" id="toggleButton">Light<img src="assets/icon-sun.svg" alt="Sun" class="iconButton"></button>
+                    </div>
+                 </div>
+
+                <!-- Button to take you to the top of the page -->
+                <button class="toTop" id="toTop"><img src="assets/arrowheadUp.svg" alt="Arrow To Top" class="toTopSvg"></button>
+            </nav>
+
+            <!-- Content of the page -->
+            <article class="articleHolder">
+                <header class="header">
+                    <h1 class="heading" id="heading">Improving Sofia's Air Quality: A Step-by-Step Plan</h1>
+                </header>
+
+                <ol class="stepsToImproveList">
+                    <!-- List 1 - Identifying Pollution Hotspots -->
+                    <li class="step step-1" id="stepsToImproveAQI">
+                        <div class="rangeBackground step1Background"><div class="range step1ActiveColor"></div></div>
+                        <div>
+                            <div class="currentList step1ActiveColor"></div>
+                            <h2 class="stepHeading stepHeading1" id="stepHeading1">Identifying Pollution Hotspots</h2>
+                        </div>
+                        
+                        <p class="paragraph" id="paragraph1">
+                            To stop Sofia’s persistent air pollution, the first step is to check which areas are most affected. 
+                            Installing air quality measurement devices across the city would provide real-time data, 
+                            identifying the regions where pollution levels are highest. These devices would monitor key pollutants like PM₂.₅, 
+                            nitrogen dioxide(NO₂), and ozone(O₃), helping to locate pollution hotspots.
+                        </p>
+                    </li>
+    
+                    <!-- List 2 - Investigating Pollution Sources -->
+                    <li class="step step-2">
+                        <div class="rangeBackground step2Background"><div class="range step2ActiveColor"></div></div>
+                        <div>
+                            <div class="currentList step2ActiveColor"></div>
+                            <h2 class="stepHeading stepHeading2" id="stepHeading2">Investigating Pollution Sources</h2>
+                        </div>
+                        <p class="paragraph" id="paragraph2">
+                            Once the data is gathered, the next step is to investigate why these areas are particularly polluted. For example, 
+                            residential neighborhoods may suffer due to burning solid fuels like wood or coal, 
+                            while heavy traffic zones might show elevated NO₂ levels. 
+                            Industrial areas could also contribute to higher particulate matter emissions.
+                            By understanding the specific causes, we can address each pollution source more effectively.
+                        </p>
+                    </li>
+    
+                    <!-- List 3 - Implementing Unique Solutions -->
+                    <li class="step step-3">
+                        <div class="rangeBackground step3Background"><div class="range step3ActiveColor"></div></div>
+                        <div>
+                            <div class="currentList step3ActiveColor"></div>
+                            <h2 class="stepHeading stepHeading3" id="stepHeading3">Implementing Unique Solutions</h2>
+                        </div>
+                        <div class="currentList"></div>
+                        <p class="paragraph" id="paragraph3">
+                            With this knowledge in hand, the city can implement unique solutions. In residential areas, 
+                            encouraging a shift to cleaner heating alternatives such as heat pumps or 
+                            natural gas can reduce particulate matter. In traffic-heavy zones, promoting public 
+                            transportation and installing more electric vehicle charging stations would help curb NO₂ emissions. 
+                            Additionally, planting trees and creating green spaces in industrial and densely populated 
+                            areas could help absorb pollutants and improve overall air quality.
+                        </p>                
+                    </li>
+    
+                    <!-- List 4 - Enforcing Stricter Regulations -->
+                    <li class="step step-4" id="simpleIdeas">
+                        <div class="rangeBackground step4Background"><div class="range step4ActiveColor"></div></div>
+                        <div>
+                            <div class="currentList step4ActiveColor"></div>
+                            <h2 class="stepHeading stepHeading4" id="stepHeading4">Enforcing Stricter Regulations</h2>
+                        </div>
+                        <div class="currentList"></div>
+                        <p class="paragraph" id="paragraph4">
+                            Enforcing stricter regulations is also crucial. Imposing larger sanctions on individuals and businesses that contribute to pollution, 
+                            such as those who burn trash, including illegal materials like plastic and textiles, would deter harmful practices. 
+                            Making it illegal to burn materials like plastic and old clothes could significantly reduce the release of toxic chemicals into the air.        
+                        </p>
+                    </li>
+
+                    <!-- List 5 - Encouraging Eco-Friendly Transportation Options -->
+                    <li class="step step-5">
+                        <div class="rangeBackground step5Background"><div class="range step5ActiveColor"></div></div>
+                        <div>
+                            <div class="currentList step5ActiveColor"></div>
+                            <h2 class="stepHeading stepHeading5" id="stepHeading5">Encouraging Eco-Friendly Transportation Options</h2>
+                        </div>
+                        <div class="currentList"></div>
+                        <p class="paragraph" id="paragraph5">
+                            Encouraging the use of electric vehicles is another important step. 
+                            Offering subsidies and discounts on electric cars would make cleaner transportation more accessible, reducing emissions from older, 
+                            high-polluting vehicles. Expanding cycling infrastructure and making the city more bike-friendly would further cut down on traffic pollution, 
+                            promoting healthier, greener commuting options.
+                        </p>
+                   </li>
+    
+                   <!-- List 6 - Creating Green Spaces in Urban Areas -->
+                    <li class="step step-6">
+                        <div class="rangeBackground step6Background"><div class="range step6ActiveColor"></div></div>
+                        <div>
+                            <div class="currentList step6ActiveColor"></div>
+                            <h2 class="stepHeading stepHeading6" id="stepHeading6">Creating Green Spaces in Urban Areas</h2>
+                        </div>
+                        <div class="currentList"></div>
+                        <p class="paragraph" id="paragraph6">
+                            Sofia could invest in large-scale urban green projects. 
+                            Parks, vertical gardens on buildings and green roofs could help absorb pollutants and lower temperatures in highly urbanized areas, 
+                            addressing the "heat island" effect(higher temperatures than outlying areas), which often worsens air pollution. 
+                            Incentives for businesses and households to integrate greenery into their environments would also make the city healthier.
+                        </p>
+                    </li>
+                </ol>
+
+                <!-- First section - What is an air corridor? -->
+                <section class="airCorridorsSection"  id="whatIsAnAirCorridor">
+                    <img src="assets/environmentIllustration.svg" alt="Environment Illustration" class="environmentIllustration">
+                    <div class="airCorridorsContent">
+                        <h2 class="airCorridorsHeading" id="whatIsAirCorridorHeading">What is an air corridor?</h2>
+                        <p class="paragraph" id="whatIsAirCorridor"> 
+                            An air corridor is a planned open space or green pathway within urban areas that allows for better air circulation. 
+                            These corridors help channel wind and promote the dispersion of pollutants like fine particulate matter(PM₂.₅ and PM₁₀) 
+                            and nitrogen dioxide(NO₂), which tend to accumulate in densely built-up cities, especially in valleys like Sofia. 
+                            By providing a path for the wind to move through, air corridors help "flush out" stagnant, polluted air and improve overall air quality.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Second section - How Air Corridors Improve Urban Life? -->
+                <section class="airCorridorsSection reverse" id="howAirCorridorsImproveUrbanLife">
+                    <div class="airCorridorsContent">
+                        <h2 class="airCorridorsHeading" id="airCorridorsImproveHeading">How Air Corridors Improve Urban Life?</h2>
+                        <p class="paragraph" id="airCorridorsImprove">
+                            City planners can strategically design air corridors by creating open spaces between buildings, streets, 
+                            or along green belts(an area of open land around a city, on which construction is restricted), allowing air to move freely. 
+                            This involves limiting high-rise construction, widening streets, and ensuring there are gaps 
+                            between large structures to avoid obstructing natural airflow. 
+                            Planting trees and incorporating parks along these corridors also helps their function, 
+                            as plants can absorb pollutants and provide additional cooling, which reduces the heat island effect in urban settings. 
+                            Beyond improving air quality, air corridors can cool down urban areas, making them more comfortable during hot seasons,
+                            creating greener environments. Additionally,these corridors help reduce noise pollution and make cities more 
+                            resilient to climate change by promoting sustainable urban planning.
+                        </p> 
+                    </div>
+                    <img src="assets/howToImproveItSectionIllustration.svg" alt="Low rise buildings" class="airCorridorsIllustration">
+                </section>
+            </article>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-col">
+                    <h3 class="footerHeading" id="footerHomeHeading">Home</h3>
+                    <!-- Links to other parts of the website -->
+                    <ul>
+                        <li><a href="index.html#firstSectionLink" class="footerLink" id="howBadAQLink">How bad is air quality in Sofia?</a></li>
+                        <li><a href="index.html#airQualityInNumbers" class="footerLink" id="aqNumbersLink">Sofia's air quality in numbers</a></li>
+                        <li><a href="index.html#secondSectionLink" class="footerLink" id="whyBadAQLink">Why is air quality bad in Sofia?</a></li>
+                        <li><a href="index.html#thirdSectionLink" class="footerLink" id="improvingAQLink">What is being done to improve air quality?</a></li>
+                        <li><a href="index.html#fourthSectionLink" class="footerLink" id="moreImprovementsAQLink">What more can be done to improve air quality?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footerHeading" id="sourcesHeading">Sources of Pollution</h3>
+                    <!-- Links to other parts of the website -->
+                    <ul>
+                        <li><a href="sources-of-pollution.html#sofiaWinterPollution" class="footerLink" id="sofiaWinterPollutionLink">Why Sofia Faces Persistent Winter Pollution?</a></li>
+                        <li><a href="sources-of-pollution.html#mainSourcesOfPollution" class="footerLink" id="mainSourcesOfPollutionLink">Main Sources of Sofia's Air Pollution</a></li>
+                        <li><a href="sources-of-pollution.html#healthRisks" class="footerLink" id="healthRisksLink">Health Risks of Breathing Polluted Air</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footerHeading" id="improveQualityHeading">How to Improve Air Quality</h3>
+                    <!-- Links to other parts of the website -->
+                    <ul>
+                        <li><a href="how-to-improve-it.html#stepsToImproveAQI" class="footerLink" id="stepsToImproveAQILink">Steps to Improve Air Quality in Sofia</a></li>
+                        <li><a href="how-to-improve-it.html#simpleIdeas" class="footerLink" id="simpleIdeasLink">Simple Ideas for a Healthier City</a></li>
+                        <li><a href="how-to-improve-it.html#whatIsAnAirCorridor" class="footerLink" id="whatIsAnAirCorridorLink">What is an air corridor?</a></li>
+                        <li><a href="how-to-improve-it.html#howAirCorridorsImproveUrbanLife" class="footerLink" id="howAirCorridorsImproveLink">How do Air Corridors Improve Urban Life?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-bottom">
+                    <h3 class="footerHeading" id="footerShare">Share</h3>
+                    <div class="social-links">
+                        <!-- Share Buttons provided by AddToAny -->
+                        <div class="a2a_kit a2a_kit_size_32 a2a_default_style shareButtonsHolder" data-a2a-title="Cleaner air for brighter future: Improving Sofia’s air quality">
+                            <a class="a2a_button_facebook shareLink">Facebook</a>
+                            <a class="a2a_button_x shareLink">Twitter</a>
+                            <a class="a2a_button_facebook_messenger shareLink">Messenger</a>
+                            <a class="a2a_button_viber shareLink">Viber</a>
+                        </div>
+                        <script async src="https://static.addtoany.com/menu/page.js"></script>
+                    </div>
+                </div>
+
+                <!-- Contacts -->
+                <div class="footer-col footer-bottom">
+                    <h3 class="footerHeading" id="contactsEmail">Contacts</h3>
+                    <div>
+                        <!-- Email -->
+                        <div class="footerContactsHolder">
+                            <img src="assets/email-svgrepo-com.svg" alt="Email Icon" class="emailIcon">
+                            <p class="contactP" id="contactP">Contact me at: <a href="mailto:andrei9me@gmail.com">andrei9me@gmail.com</a></p>
+                        </div>
+                        
+                        <div class="footerIconsHolder">
+                            <!-- Github -->
+                            <div class="footerContactsHolder">
+                                <a href="https://github.com/AndreyDimitrov3" target="_blank" class="iconLink">
+                                    <img src="assets/github-svg.svg" alt="GitHub Logo" class="footerContactsIcon circleIcon">
+                                </a>
+                            </div>
+                    
+                            <!-- Frontend Mentor -->
+                            <div class="footerContactsHolder">
+                                <a href="https://www.frontendmentor.io/profile/AndreyDimitrov3" target="_blank" class="iconLink">
+                                    <img src="assets/frontend-mentor-logo.png" alt="Frontend Mentor Logo" class="footerContactsIcon circleIcon">
+                                </a>
+                            </div>
+                            
+                            <!-- Codewars -->
+                            <div class="footerContactsHolder">
+                                <a href="https://www.codewars.com/users/AndreyDimitrov" target="_blank" class="iconLink">
+                                    <img src="assets/codewars-icon.png" alt="CodeWars Icon" class="footerContactsIcon circleIcon">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </footer>
+        </main>
+    </body>
+</html>

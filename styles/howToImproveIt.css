@@ -1,0 +1,306 @@
+/* Variables used to change color theme */
+[data-theme=light] {
+    --listBoxShadow: 0.1rem 0.1rem 1.5rem rgba(0, 0, 0, 0.3);
+    --listBackground: white;
+    --listHeading: rgb(70, 70, 70);
+}
+  
+[data-theme=dark] {
+    color-scheme: dark;
+    --listBoxShadow: 0.1rem 0.1rem 1.5rem rgba(255, 255, 255, 0.15);
+    --listBackground: #292929;
+    --listHeading: rgb(240, 240, 240);
+}
+
+/* Add backround image to the header */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 78vh;
+    margin-bottom: 40px;
+    border-radius: 50px;
+    background-image: url("../assets/howToImproveItHeader.svg");
+    background-position: center;
+    background-size: cover;
+}
+
+p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.paragraph {
+    font-size: 19px;
+}
+
+.stepsToImproveList {
+    list-style: none; /* Removes the default bullet points from list items */
+    padding: 0;
+    counter-reset: list; /* Counter for use with ordered lists */
+    margin-bottom: 40px;
+}
+
+.step {
+    position: relative;
+    margin: 32px auto;
+    padding: 32px 16px 16px;
+    box-shadow: var(--listBoxShadow);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--listBackground);
+}
+
+/* Colored range over lists */
+.step::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;	
+}
+
+.stepHeading {
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 16px;
+    color: var(--listHeading);
+}
+
+/* Circle that displays the current list */
+.stepHeading::before {
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    margin-right: 16px;
+    padding: 16px;
+    border-radius: 50%;
+    content: counter(list); /* Display the counter */
+    counter-increment: list; /* Increment the counter */
+    color: white;
+}
+
+/* Use linear gradients for range lists */
+.step-1::before {
+    background: linear-gradient(to right, hsl(0, 71%, 62%) 0, hsl(0, 71%, 88%) 16.6%);
+}
+
+.step-2::before {
+    background: linear-gradient(to right, hsl(36, 71%, 62%) 13.2%, hsl(36, 71%, 88%) 33.2%);
+}
+
+.step-3::before {
+    background: linear-gradient(to right, hsl(72, 71%, 62%) 30%, hsl(72, 71%, 88%) 50%);
+}
+
+.step-4::before {
+    background: linear-gradient(to right, hsl(108, 71%, 62%) 46.6%, hsl(108, 71%, 88%) 66.6%);
+}
+
+.step-5::before {
+    background: linear-gradient(to right, hsl(144, 71%, 62%) 63.3%, hsl(144, 71%, 88%) 83.3%);
+}
+
+.step-6::before {
+    background: linear-gradient(to right, hsl(180, 71%, 62%) 80%, hsl(180, 71%, 88%) 100%);
+}
+
+/* Add color to list circles */
+.stepHeading1::before {
+    background-color: hsl(0, 71%, 62%);
+}
+
+.stepHeading2::before {
+    background-color: hsl(36, 71%, 62%);
+}
+
+.stepHeading3::before {
+    background-color: hsl(72, 71%, 62%);
+}
+
+.stepHeading4::before {
+    background-color: hsl(108, 71%, 62%);
+}
+
+.stepHeading5::before {
+    background-color: hsl(144, 71%, 62%);
+}
+
+.stepHeading6::before {
+    background-color: hsl(180, 71%, 62%);
+}
+
+.airCorridorsSection {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+/* Resize illustrations */
+.environmentIllustration {
+    width: 25%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.airCorridorsIllustration {
+    width: 35%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.airCorridorsHeading {
+    font-size: 36px;
+}
+
+.sectionSubHeading {
+    font-size: 24px;
+}
+
+.airCorridorsContent {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+@media screen and (max-width: 1023px) {
+    .airCorridorsSection.reverse {
+        flex-direction: column;
+    }
+
+    .airCorridorsIllustration {
+        width: auto;
+        max-height: 300px;
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .airCorridorsSection {
+        flex-direction: column;
+    }
+
+    .environmentIllustration {
+        width: auto;
+        max-height: 200px;
+        max-width: 90%;
+    }
+
+    .airCorridorsSection.reverse {
+        flex-direction: column-reverse;
+    }
+}
+
+@media screen and (max-height: 690px) {
+    .header {
+        height: 76vh;
+    }
+
+    .articleHolder {
+        padding: 128px 35px 0 35px;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .stepHeading {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .paragraph {
+        text-align: center;
+    }
+
+    .airCorridorsHeading {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .stepHeading:before {
+        display: none !important; /* Remove list circle */
+    }
+
+    .airCorridorsHeading {
+        font-size: 32px;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .paragraph {
+        font-size: 20px;
+    }
+}
+
+/* Make navigation and header to take 100% of the viewport height */
+@media screen and (min-height: 750px) {
+    .header {
+        height: 79vh;
+    }
+}
+
+@media screen and (min-height: 810px) {
+    .header {
+        height: 81vh;
+    }
+}
+
+@media screen and (min-height: 900px) {
+    .header {
+        height: 83vh;
+    }
+}
+
+@media screen and (min-height: 1000px) {
+    .header {
+        height: 85vh;
+    }
+}
+
+/* Change element sizes */
+@media screen and (min-width: 1700px) {
+    .stepHeading {
+        font-size: 36px;
+    }
+
+    .stepHeading:before {
+        font-size: 36px;
+        width: 55px;
+        height: 55px;
+    }
+
+    .paragraph {
+        font-size: 21px;
+    }
+
+    .airCorridorsHeading {
+        font-size: 42px;
+    }
+
+    .airCorridorsSection {
+        gap: 50px;
+    }
+
+    .environmentIllustration {
+        width: 23%;
+    }
+}
+
+@media screen and (min-width: 1900px) {
+    .paragraph {
+        font-size: 23px;
+    }
+
+    .airCorridorsHeading {
+        font-size: 45px;
+    }
+}

@@ -1,0 +1,171 @@
+/* Add background image to the header */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 78vh;
+    margin-bottom: 40px;
+    border-radius: 50px;
+    background-image: url("../assets/sourcesOfPollutionHeading.webp");
+    background-position: center;
+    background-size: cover;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.sectionHeading {
+    display: inline;
+    font-size: 42px;
+    line-height: 1.3;
+}
+
+.sectionParagraph {
+    font-size: 19px;
+}
+
+.sectionContent {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.illustration {
+    width: 30%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.pollutionIllustration {
+    height: 350px;
+    width: 470px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+/* Make navigation and header to take 100% of the viewport height */
+@media screen and (max-height: 710px) {
+    .header {
+        height: 75vh;
+    }
+
+    .articleHolder {
+        padding: 128px 35px 0 35px;
+    }
+}
+
+@media screen and (min-height: 790px) {
+    .header {
+        height: 80vh;
+    }
+}
+
+@media screen and (min-height: 875px) {
+    .header {
+        height: 82vh;
+    }
+}
+
+@media screen and (min-height: 970px) {
+    .header {
+        height: 84vh;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .sectionHeading {
+        font-size: 48px;
+    }
+
+    .sectionParagraph {
+        font-size: 21px;
+    }
+
+    .illustration {
+        width: 23%;
+    }
+
+    .pollutionIllustration {
+        height: 430px;
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .sectionHeading {
+        font-size: 32px;
+    }
+
+    .sectionParagraph {
+        font-size: 16px;
+    }
+
+    .healthRisks {
+        flex-direction: column-reverse;
+        gap: 0;
+    }
+
+    .pollutionIllustration {
+        width: auto;
+        height: auto;
+        max-height: 300px;
+        max-width: 90%;
+        margin-left: 70px; /* Align Image in center because of smoke */
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .section {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .sectionContent {
+        align-items: center;
+    }
+
+    .sectionHeading {
+        text-align: center;
+    }
+
+    .sectionParagraph {
+        text-align: center;
+    }
+
+    .illustration {
+        width: auto;
+        max-height: 300px;
+        max-width: 90%;
+    }
+
+    .section.reversed {
+        flex-direction: column-reverse;
+        gap: 16px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .sectionHeading {
+        font-size: 26px;
+    }
+}
+
+/* Readjust margin */
+@media screen and (max-width: 450px) {
+    .pollutionIllustration {
+        margin-left: 50px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .pollutionIllustration {
+        margin-left: 35px;
+    }
+}

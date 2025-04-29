@@ -1,0 +1,460 @@
+/* Variables used to change color theme */
+[data-theme=light] {
+    --filterHexagon: unset;
+    --filterShadowHexagon: drop-shadow(1px 2px 6px rgba(0 0 0 / 0.1)) brightness(0.99);
+}
+  
+[data-theme=dark] {
+    color-scheme: dark;
+    --filterHexagon: invert(0.85);
+    --filterShadowHexagon: drop-shadow(1px 2px 6px rgba(0 0 0 / 0.4)) invert(0.87);
+}
+
+/* Add background image to the header */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 78vh;
+    margin-bottom: 40px;
+    border-radius: 50px;
+    background-image: url('../assets/homepageHeadingBackground.webp');
+    background-position: center;
+    background-size: cover;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.sectionContent {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sectionHeadingLink {
+    width: fit-content;
+    text-decoration: none;
+}
+
+.sectionHeading {
+    display: inline;
+    font-size: 42px;
+    line-height: 1.3;
+    transition: 0.2s;
+}
+
+.sectionHeading:hover {
+    color: var(--textColorHover);
+}
+
+.sectionParagraph {
+    font-size: 19px;
+}
+
+.statistics {
+    position: relative;
+    width: calc(100% + 70px); /* Ensure full coverage */
+    height: auto;
+    margin: 0 -35px 40px; /* Don't go outside the screen */
+    overflow: hidden;
+    background: rgba(215 221 232 / 0.2);
+    padding: 20px 35px 35px;
+    border-top: 1px solid #e6e6f1;
+    border-bottom: 1px solid #e6e6f1;
+}
+
+.image-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+
+}
+
+/* Add centered background for statistics */
+.statistics::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../assets/backgroundStatisticPattern.svg');
+    background-size: cover;
+    background-position: center;
+    filter: unset;
+    z-index: -1; /* Place the pattern behind the content */
+}
+
+.asideHeading {
+    font-size: 42px;
+    padding-top: 12px;
+}
+
+#asideHeading2 {
+    padding-top: 0;
+}
+
+/* Create grid template area with the dots(.) being empty templates */
+.statisticsHexagonHolder {
+    display: grid;
+    grid-template-areas: 
+    ". . . four"
+    ". . three four"
+    ". two three four"
+    "one two three ."
+    "one two . ."
+    "one . . ."
+    ;
+    padding: 0 0 32px 0;
+}
+
+/* Add the hexagon to the corresponding template */
+.firstHexagon {
+    grid-area: one;
+}
+
+.secondHexagon {
+    grid-area: two;
+}
+
+.thirdHexagon {
+    grid-area: three;
+}
+
+.fourthHexagon {
+    grid-area: four;
+}
+
+p {
+    color: var(--textColor);
+}
+
+.statisticsHolder {
+    position: relative;
+    text-align: center;
+    width: fit-content;
+}
+
+/* Position statistics inside the leaf hexagon */
+.statisticsData {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.leafHexagonImg {
+    height: 250px;
+    filter: var(--filterHexagon);
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+/* Add scale and box shadow animation on hexagons */
+.leafHexagonImg:hover {
+    filter: var(--filterShadowHexagon);
+    transform: scale(1.05);
+}
+
+.sofiaLevels {
+    font-size: 20px;
+    font-weight: 600;
+    width: max-content;
+    margin: 20px 0 16px 0;
+}
+
+.statisticsParagraph {
+    text-align: center;
+}
+
+.whoRecommended {
+    font-size: 12px;
+}
+
+.sectionIllustration {
+    width: 40%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.fourthSectionIllustration {
+    width: 35%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+#howBadIsIt {
+    margin-top: 100px;
+}
+
+/* Make navigation and header to take 100% of the viewport height */
+@media screen and (max-height: 710px) {
+    .header {
+        height: 75vh;
+    }
+
+    .articleHolder {
+        padding: 128px 35px 0 35px;
+    }
+}
+
+@media screen and (min-height: 790px) {
+    .header {
+        height: 80vh;
+    }
+}
+
+@media screen and (min-height: 875px) {
+    .header {
+        height: 82vh;
+    }
+}
+
+@media screen and (min-height: 970px) {
+    .header {
+        height: 84vh;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .leafHexagonImg {
+        height: 225px;
+    }
+}
+
+/* Make font-sizes smaller */
+@media screen and (max-width: 1200px) {
+    .sectionHeading {
+        font-size: 32px;
+    }
+
+    .sectionParagraph {
+        font-size: 16px;
+    }
+
+    .asideHeading {
+        font-size: 32px;
+    }
+
+    .leafHexagonImg {
+        height: 210px;
+    }
+    
+    .sofiaLevels {
+        font-size: 18px;
+    }
+
+    .whoRecommended {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .whoMeaning {
+        font-size: 14px;
+    }
+
+    /* Make statistics take 100% viewport because of articleHolder adding padding */
+    .statistics {
+        width: calc(100% + 48px);
+        margin: 0 -24px 40px;
+    }
+
+    /* Readjust hexagons */
+    .statisticsHexagonHolder {
+        grid-template-areas:
+        ". . four ."
+        ". three four ."
+        ". three four ."
+        ". three . ."
+        ". . two ."
+        ". one two ."
+        ". one two ."
+        ". one . .";
+    }
+
+    .leafHexagonImg {
+        height: 250px;
+    }
+
+    .sofiaLevels {
+        font-size: 20px;
+    }
+
+    .whoRecommended {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .section.reversed {
+        flex-direction: column-reverse;
+    }
+
+    .sectionIllustration, .fourthSectionIllustration {
+        width: auto;
+        max-height: 300px;
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .sectionHeading {
+        font-size: 26px;
+    }
+
+    .asideHeading {
+        font-size: 26px;
+    }
+
+    .leafHexagonImg {
+        height: 225px;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .sectionContent {
+        align-items: center;
+    }
+
+    .sectionHeading {
+        display: block;
+        text-align: center;
+    }
+
+    .sectionParagraph {
+        text-align: center;
+    }
+
+    .asideHeading {
+        text-align: center;
+    }
+
+    .whoMeaning {
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    /* Readjust hexagons */
+    .statisticsHexagonHolder {
+        grid-template-areas:
+        "four"
+        "three"
+        "two"
+        "one";
+        justify-content: center;
+        gap: 24px;
+    }
+}
+
+/* Make statistics take 100% viewport because of articleHolder adding padding */
+@media screen and (max-width: 450px) {
+    .statistics {
+        width: calc(100% + 32px);
+        margin: 0 -16px 40px;
+        padding: 20px 16px 35px;
+    }
+}
+
+/* Make elements bigger */
+@media screen and (min-width: 1600px) {
+    .leafHexagonImg {
+        height: 275px;
+    }
+
+    .sofiaLevels {
+        font-size: 22px;
+    }
+
+    .whoRecommended {
+        font-size: 13px;
+    }
+
+    .statisticsParagraph {
+        font-size: 18px;
+    }
+
+    .sectionIllustration {
+        width: 34%;
+    }
+
+    .fourthSectionIllustration {
+        width: 28%;
+    }
+}
+
+/* Make elements bigger */
+@media screen and (min-width: 1700px) {
+    .sectionHeading, .asideHeading {
+        font-size: 48px;
+    }
+
+    .sectionParagraph {
+        font-size: 20px;
+    }
+
+    .whoMeaning, .statisticsParagraph {
+        font-size: 19px;
+    }
+
+    .leafHexagonImg {
+        height: 290px;
+    }
+
+    .sectionIllustration {
+        width: 30%;
+    }
+
+    .fourthSectionIllustration {
+        width: 25%;
+    }
+}
+
+/* Make elements bigger */
+@media screen and (min-width: 1800px) {
+    .sectionHeading, .asideHeading {
+        font-size: 54px;
+    }
+
+    .sectionParagraph {
+        font-size: 22px;
+    }
+
+    .whoMeaning, .statisticsParagraph {
+        font-size: 20px;
+    }
+
+    .leafHexagonImg {
+        height: 325px;
+    }
+
+    .sofiaLevels {
+        font-size: 25px;
+    }
+
+    .whoRecommended {
+        font-size: 15px;
+    }
+
+    .sectionIllustration {
+        width: 28%;
+    }
+
+    .fourthSectionIllustration {
+        width: 23%;
+    }
+}
