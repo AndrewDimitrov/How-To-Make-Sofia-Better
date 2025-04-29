@@ -43,8 +43,15 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("loadedContent").classList.add("hidden"); // Hide content of previous search
     document.getElementById("cityAqiContainer").innerText = ""; // Remove text for incorrect searches(when displaying errors)
 
-    fetch(`/api/airQuality?city=${city}`)
+    const apiToken = process.env.WAQI_API_TOKEN;
+
+    fetch(
+      `https://api.waqi.info/feed/${city}/?token=${apiToken}`
+    )
+      // Check if response is ok
       .then((response) => {
+        console.log("API response:", response);
+
         if (!response.ok) {
           throw new Error("Network response was not ok " + response.statusText);
         }
