@@ -42,10 +42,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("loader").classList.remove("hidden"); // Add animation when loading
     document.getElementById("loadedContent").classList.add("hidden"); // Hide content of previous search
     document.getElementById("cityAqiContainer").innerText = ""; // Remove text for incorrect searches(when displaying errors)
+    token = process.env.token;
 
-    fetch(
-      `https://api.waqi.info/feed/${city}/?token=526cdb64574ae7a214b4a2e7cf5e5dc2eb3c49d1`
-    )
+    fetch(`https://api.waqi.info/feed/${city}/?token=${token}`)
       // Check if response is ok
       .then((response) => {
         console.log("API response:", response);
